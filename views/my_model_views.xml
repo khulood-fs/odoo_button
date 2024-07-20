@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <!-- Main form view for MyModel -->
+        <record id="view_my_model_form" model="ir.ui.view">
+            <field name="name">my_model.form</field>
+            <field name="model">my_module.my_model</field>
+            <field name="arch" type="xml">
+                <form string="My Model">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <footer>
+                        <button name="test_code_v17" string="Test Code v17" type="object" class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_my_model_tree" model="ir.ui.view">
+        <field name="name">my.model.tree</field>
+        <field name="model">my.model</field>
+        <field name="arch" type="xml">
+            <tree string="My Model">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="my_model_menu" name="My Model" sequence="1" action="my_model_action"/>
+    <record id="my_model_action" model="ir.actions.act_window">
+        <field name="name">My Model</field>
+        <field name="res_model">my.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>   
+    </data>
+</odoo>
