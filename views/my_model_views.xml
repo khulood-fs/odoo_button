@@ -4,7 +4,7 @@
         <record id="view_crm_lead_form_inherit" model="ir.ui.view">
             <field name="name">crm.lead.form.inherit</field>
             <field name="model">crm.lead</field>
-            <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+            <field name="inherit_id" ref="crm.crm_lead_action_pipeline"/>
             <field name="arch" type="xml">
                 <xpath expr="//header" position="inside">
                     <button name="test_code_v17" string="Test Code v17" type="object" class="btn-primary"/>
