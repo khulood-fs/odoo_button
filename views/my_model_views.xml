@@ -1,39 +1,26 @@
 <odoo>
     <data>
-        <!-- Main form view for MyModel -->
-        <record id="view_my_model_form" model="ir.ui.view">
-            <field name="name">my_model.form</field>
-            <field name="model">my_module.my_model</field>
+        <!-- Inherit the form view for CRM Lead -->
+        <record id="view_crm_lead_form_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.form.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
             <field name="arch" type="xml">
-                <form string="My Model">
-                <sheet>
-                    <group>
-                        <field name="name"/>
-                    </group>
-                    <footer>
-                        <button name="test_code_v17" string="Test Code v17" type="object" class="btn-primary"/>
-                    </footer>
-                </sheet>
-            </form>
-        </field>
-    </record>
+                <xpath expr="//header" position="inside">
+                    <button name="test_code_v17" string="Test Code v17" type="object" class="btn-primary"/>
+                </xpath>
+            </field>
+        </record>
 
-    <record id="view_my_model_tree" model="ir.ui.view">
-        <field name="name">my.model.tree</field>
-        <field name="model">my.model</field>
-        <field name="arch" type="xml">
-            <tree string="My Model">
-                <field name="name"/>
-            </tree>
-        </field>
-    </record>
-
-    <menuitem id="my_model_menu" name="My Model" sequence="1" action="my_model_action"/>
-    <record id="my_model_action" model="ir.actions.act_window">
-        <field name="name">My Model</field>
-        <field name="res_model">my.model</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-</odoo>   
+        <!-- Define the method to be called by the button -->
+        <record id="action_test_code_v17" model="ir.actions.server">
+            <field name="name">Test Code v17</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="binding_model_id" ref="crm.model_crm_lead"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = self.test_code_v17()
+            </field>
+        </record>
     </data>
 </odoo>
