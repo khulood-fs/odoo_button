@@ -3,7 +3,7 @@
     'version': '1.0',
     'author': 'Your Name',
     'category': 'Uncategorized',
-    'depends': ['base'],
+   'depends': ['base', 'contacts'],
     'data': [
         'views/my_model_views.xml',
     ],
