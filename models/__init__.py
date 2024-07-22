@@ -1,3 +1,2 @@
-# -*- coding: utf-8 -*-
-
-from . import res_partner
+# models/__init__.py
+from . import crm_lead
